@@ -371,6 +371,45 @@ Editor(input);
     };
     ```
 
-## 4. 결과
+## 4. 최선의 코딩 방법
 
-38285479 kmsk99 1406 맞았습니다!! 115272 1224 node.js / 수정
+    - 좌측과 우측을 배열을 활용한 스택으로 구성 후, 최후에 출력
+
+```
+const fs = require("fs");
+const input = fs.readFileSync("/dev/stdin").toString().split("\n");
+const str = input[0];
+const leftStack = [...str];
+const rightStack = [];
+const n = +input[1];
+
+for (let i = 2; i <= n + 1; i++) {
+  let popedValue = null;
+  switch (input[i][0]) {
+    case "L":
+      if (!leftStack.length)
+          break;
+      popedValue = leftStack.pop();
+      if (popedValue)
+          rightStack.push(popedValue);
+      break;
+    case "D":
+      if (!rightStack.length)
+          break;
+      popedValue = rightStack.pop();
+      if (popedValue)
+          leftStack.push(popedValue);
+      break;
+    case "B":
+      leftStack.pop();
+      break;
+    case "P":
+      const value = input[i][2];
+      leftStack.push(value);
+      break;
+  }
+}
+
+console.log(leftStack.concat(rightStack.reverse()).join(""));
+
+```
