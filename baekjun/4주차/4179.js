@@ -63,6 +63,7 @@ class Queue {
         return this.size === 0;
     }
 }
+
 const array2D = (x, y) => {
     const array = new Array(y);
     for (let i = 0; i < y; i++) {

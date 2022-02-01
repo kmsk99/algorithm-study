@@ -48,47 +48,48 @@ console.log(result);
     - 오브젝트로 구현하여 각 오브젝트의 개수를 추가하였다
 
 2. 사전 작업
+
     - 방 번호의 모든 9를 6으로 바꿔준다
     - 방 번호 당 숫자를 세는 빈 객체를 만든다
     - 결과값을 선언한다
 
-```
-const newRoomNumber = roomNumber.replaceAll('9', '6');
-let roomNumberCount = {};
-let result = 0;
-```
+    ```
+    const newRoomNumber = roomNumber.replaceAll('9', '6');
+    let roomNumberCount = {};
+    let result = 0;
+    ```
 
 3. 함수 구현
 
 -   문자열을 각 숫자당 개수를 나타내는 오브젝트로 변환
 
-```
-    for (let i = 0; i < newRoomNumber.length; i++) {
-    if (roomNumberCount[newRoomNumber[i]]) {
-    roomNumberCount[newRoomNumber[i]] =
-    roomNumberCount[newRoomNumber[i]] + 1;
-    } else {
-    roomNumberCount[newRoomNumber[i]] = 1;
-    }
-    }
-```
+    ```
+        for (let i = 0; i < newRoomNumber.length; i++) {
+        if (roomNumberCount[newRoomNumber[i]]) {
+        roomNumberCount[newRoomNumber[i]] =
+        roomNumberCount[newRoomNumber[i]] + 1;
+        } else {
+        roomNumberCount[newRoomNumber[i]] = 1;
+        }
+        }
+    ```
 
 -   6은 6과 9가 합쳐져 있으므로 절반으로 나눈 뒤 올림
 
-```
-if (roomNumberCount[6]) {
-roomNumberCount[6] = Math.ceil(roomNumberCount[6] / 2);
-}
-```
+    ```
+    if (roomNumberCount[6]) {
+    roomNumberCount[6] = Math.ceil(roomNumberCount[6] / 2);
+    }
+    ```
 
 -   오브젝트 전체에 걸쳐 최대값 측정
 
-```
-for (const currentNumber in roomNumberCount) {
-if (result < roomNumberCount[currentNumber]) {
-result = roomNumberCount[currentNumber];
-}
-```
+    ```
+    for (const currentNumber in roomNumberCount) {
+    if (result < roomNumberCount[currentNumber]) {
+    result = roomNumberCount[currentNumber];
+    }
+    ```
 
 ## 4. 최선의 코딩 방법
 
