@@ -5,14 +5,11 @@ class Node {
     }
 
     setNextNode(node) {
-        if (!(node instanceof Node)) {
-            throw new Error('Next node must be a member of the Node class');
+        if (node instanceof Node || node === null) {
+            this.next = node;
+        } else {
+            throw new Error('Next node must be a member of the Node class.');
         }
-        this.next = node;
-    }
-
-    setNext(data) {
-        this.next = data;
     }
 
     getNextNode() {
@@ -20,4 +17,4 @@ class Node {
     }
 }
 
-module.exports = Node;
+const strawberryNode = new Node('Berry Tasty
