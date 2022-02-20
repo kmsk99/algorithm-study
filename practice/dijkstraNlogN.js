@@ -98,8 +98,7 @@ const dijkstra = (start) => {
     pq.enqueue(0, start);
     while (!pq.isEmpty()) {
         const { key: distance, value: current } = pq.dequeue();
-        console.log(current, distance, d[current]);
-        // if (d[current] < distance) continue;
+        if (d[current] < distance) continue;
         for (let i = 0; i < a[current].length; i++) {
             const next = a[current][i].value;
             const nextDistance = distance + a[current][i].key;
