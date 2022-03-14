@@ -1,0 +1,53 @@
+html {
+    background-color: #333333;
+  }
+  
+  body {
+    width: 500px;
+    margin: 30px auto;
+    background-color: #ffffff;
+    border: 5px solid black;
+  }
+  
+  .selection {
+    display: flex;
+  }
+  
+  label {
+    display: block;
+    background-color: lightgrey;
+    width: 100px;
+    height: 100px;
+  }
+  
+  input {
+    opacity: 0;
+    position: absolute;
+    width: 0px;
+    height: 0px;
+  }
+  
+  label.black {
+    background-color: black;
+    color: lightgray;
+  }
+  
+  label.red {
+    background-color: red;
+    color: lightgray;
+  }
+  
+  label.green {
+    background-color: green;
+    color: lightgray;
+  }
+  
+  label.blue {
+    background-color: blue;
+    color: lightgray;
+  }
+  
+  label.white {
+    background-color: white;
+    color: lightgray;
+  }
